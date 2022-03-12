@@ -1,0 +1,5 @@
+You would want to disable browser-based validation in certain scenarios where there is a large form or in the case of needing to support a wide variety of both modern and legacy browsers.
+The element event you would use if you wanted to test an element's value, but only after the element loses focus is the Blur event.
+You could determine if the third checkbox is checked by writing a statement like this: checkList[2].checked 
+The Submit event usually causes a form's contents to be validated.
+The isNaN() function is what you would use to check if a variable contains numeric data.

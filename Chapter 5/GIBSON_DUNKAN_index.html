@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Discussion 5</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Discussion 5</h1>
+    <p>Music store instrument list</p>
+    <input type="text" id="input">
+    <br/><br/>
+    <input type="button" id="add" value="Add">
+    <input type="button" id="remove" value="Remove">
+    <br/><br/>
+    <ul id="stock" ></ul>
+    <script>
+      // Variables
+      var textbox = document.getElementById("input");     // The textbox
+      var addBtn = document.getElementById("add");        // The "Add" button
+      var removeBtn = document.getElementById("remove");  // The "Remove" button
+      var ul = document.getElementById("stock");          // The <ul> element
+      var checklist = null;   // Will contain references to all checkboxes
+      var list = null;        // Will contain references to all <li> elements
+      var input = "";         // Will store values from the textbox
+      var newNode = null;     // Will contain a reference to a new node
+      var i = 0;              // Counter variable for loop
+      // The add() function creates a new <li> node containing a checkbox
+      // and the value from the textbox. It then appends the node as a child
+      // to the <ul> element referenced by the ul variable. The textbox is
+      // then cleared.
+      function add() {
+        newNode = document.createElement("li");
+        newNode.innerHTML = textbox.value;
+        checklist = document.createElement("input");
+        checklist.setAttribute("type", "checkbox");
+        ul.appendChild(newNode);
+        newNode.appendChild(checklist);
+        ul.style.listStyle = "none"
+        checklist.style.margin = "10px"
+        textbox.value = "";
+      }
+      // The remove() function deletes all instruments that are checked.
+      function remove() {
+      }
+      // Backwards compatible event listener for the "Add" button
+      if (addBtn.addEventListener) {
+        addBtn.addEventListener("click", add, false);
+      } else if (addBtn.attachEvent) {
+        addBtn.attachEvent("onclick", add);
+      }
+      // Backwards compatible event listener for the "Remove" button
+      if (removeBtn.addEventListener) {
+        removeBtn.addEventListener("click", remove, false);
+      } else if (removeBtn.attachEvent) {
+        removeBtn.attachEvent("onclick", remove);
+      }
+    </script>
+  </body>
+</html>
