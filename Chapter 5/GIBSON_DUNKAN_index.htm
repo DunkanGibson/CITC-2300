@@ -28,17 +28,17 @@
       // and the value from the textbox. It then appends the node as a child
       // to the <ul> element referenced by the ul variable. The textbox is
       // then cleared.
+
       function add() {
         newNode = document.createElement("li");
         newNode.innerHTML = textbox.value;
         checklist = document.createElement("input");
         checklist.setAttribute("type", "checkbox");
-        ul.appendChild(newNode);
         newNode.appendChild(checklist);
-        ul.style.listStyle = "none"
-        checklist.style.margin = "10px"
+        ul.appendChild(newNode);
         textbox.value = "";
       }
+
       // The remove() function deletes all instruments that are checked.
       function remove() {
       }
