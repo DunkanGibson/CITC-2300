@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Discussion 8</title>
+  </head>
+  <body>
+    <h1>Password Validation</h1>
+    <p>
+      Enter a password that begins with an uppercase letter, followed by five
+      lowercase letters, followed by a one-digit number (0-9), and ending with one symbol (@, $,
+      %, or &).
+    </p>
+    </ul>
+    <input type="text" id="pass"><br/>
+    <input type="button" id="submit" value="Submit">
+    <br/><br/>
+    <p id="result"></p>
+    <script>
+      var password = document.getElementById("pass");
+      var submit = document.getElementById("submit");
+      var result = document.getElementById("result");
+      var input = "";
+      var regularExpression = /^[A-Z][a-z]{5}[0-9][@$%&]$/;  // Replace with your regular expression
+      function validate() {
+        input = password.value;
+        password.value = "";
+        if (regularExpression.test(input)) {
+          result.innerHTML = "Your password is acceptable.";
+        } else {
+          result.innerHTML = "Your password is not valid.";
+        }
+      }
+      if (submit.addEventListener) {
+        submit.addEventListener("click", validate, false);
+      } else if (submit.attachEvent) {
+        submit.attachEvent("onclick", validate);
+      }
+    </script>
+  </body>
+</html>
